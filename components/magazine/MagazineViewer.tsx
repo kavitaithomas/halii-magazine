@@ -9,3 +9,102 @@ input: array of image URLs and page count
   outputs JSON manifest with page count
 */
 
+'use client'
+import { useRef, useState, useCallback, useEffect } from 'react'
+import Image from 'next/image'
+import { HTMLFlipBook } from './PageFlipWrapper'
+import { ViewerToolbar } from './ViewerToolbar'
+import { MobileMagazine } from './MobileMagazine'
+import { useMediaQuery } from '@/lib/hooks'
+import type { IssueManifest } from '@/types/magazine'
+
+interface Props {
+  manifest: IssueManifest
+  title: string
+}
+
+export function MagazineViewer({ manifest, title }: Props) {
+  const bookRef = useRef<any>(null)
+  const [currentPage, setCurrentPage] = useState(0)
+  const [isFullscreen, setIsFullscreen] = useState(false)
+  const isMobile = useMediaQuery('(max-width: 768px)')
+
+  const onFlip = useCallback((e: any) => {
+    setCurrentPage(e.data)
+  }, [])
+
+  const goToPrev = () => bookRef.current?.pageFlip().flipPrev()
+  const goToNext = () => bookRef.current?.pageFlip().flipNext()
+  const goToPage = (n: number) => bookRef.current?.pageFlip().flip(n)
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen()
+      setIsFullscreen(true)
+    } else {
+      document.exitFullscreen()
+      setIsFullscreen(false)
+    }
+  }
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') goToNext()
+      if (e.key === 'ArrowLeft') goToPrev()
+    }
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [])
+
+  if (isMobile) {
+    return <MobileMagazine pages={manifest.pages} title={title} />
+  }
+
+  return (
+    <div className="flex flex-col items-center bg-neutral-950 min-h-screen">
+
+      <ViewerToolbar
+        title={title}
+        currentPage={currentPage}
+        pageCount={manifest.pageCount}
+        onPrev={goToPrev}
+        onNext={goToNext}
+        onGoToPage={goToPage}
+        onToggleFullscreen={toggleFullscreen}
+        isFullscreen={isFullscreen}
+      />
+
+      <div className="flex-1 flex items-center justify-center p-8 w-full">
+        <HTMLFlipBook
+          ref={bookRef}
+          width={550}
+          height={733}
+          size="stretch"
+          minWidth={300}
+          maxWidth={1000}
+          minHeight={400}
+          maxHeight={1350}
+          showCover={true}
+          mobileScrollSupport={false}
+          onFlip={onFlip}
+          className="shadow-2xl"
+        >
+          {manifest.pages.map((src, i) => (
+            <div key={i} className="relative w-full h-full bg-white">
+              <Image
+                src={src}
+                alt={`Page ${i + 1}`}
+                fill
+                sizes="50vw"
+                className="object-cover"
+                loading={i < 4 ? 'eager' : 'lazy'}
+              />
+            </div>
+          ))}
+        </HTMLFlipBook>
+      </div>
+
+    </div>
+  )
+}
