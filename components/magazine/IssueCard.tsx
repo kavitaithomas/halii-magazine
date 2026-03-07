@@ -29,27 +29,22 @@ export function IssueCard({ issue, priority = false }: IssueCardProps) {
 
           {/* Issue number badge */}
           <div
-            className="absolute top-3 left-3 bg-black/80 text-white
-                         text-xs font-mono tracking-widest px-2 py-1"
+            className="absolute bg-black/80 text-white
+                         text-xs font-mono tracking-widest px-2"
           >
-            No. {issue.issueNumber}
+            {issue.slug}
           </div>
         </div>
 
         {/* Metadata */}
         <div className="pt-3">
-          <p className="text-xs font-mono tracking-widest text-neutral-400 uppercase">
-            {issue.season}
-          </p>
           <h3
-            className="mt-1 font-serif text-lg leading-snug
-                        group-hover:underline underline-offset-2"
+            className="mt-1 font-serif text-3xl leading-snug
+                        group-hover:underline underline-offset-2 text-rose-950"
           >
             {issue.title}
           </h3>
-          <p className="mt-1 text-sm text-neutral-500">
-            {issue.pageCount} pages
-          </p>
+          <p className="mt-1 text-m text-neutral-400">{issue.description}</p>
         </div>
       </article>
     </Link>

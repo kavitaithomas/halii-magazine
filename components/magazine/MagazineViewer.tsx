@@ -4,66 +4,66 @@ input: array of image URLs and page count
 - mobile responsive
 - shows loading state while images fetch
 
-- image URLS are each page from the PDF turned into a webp file
-- Automated by a node js script that converts PDF page by page to webp, 
-  outputs JSON manifest with page count
+- node webp-converted lib 
+-download magazine as png (each mag its own folder) then convert each png to webp
+
+run: node scripts/convert-pngs.cjs
 */
 
-'use client'
-import { useRef, useState, useCallback, useEffect } from 'react'
-import Image from 'next/image'
-import { HTMLFlipBook } from './PageFlipWrapper'
-import { ViewerToolbar } from './ViewerToolbar'
-import { MobileMagazine } from './MobileMagazine'
-import { useMediaQuery } from '@/lib/hooks'
-import type { IssueManifest } from '@/types/magazine'
+"use client";
+import { useRef, useState, useCallback, useEffect } from "react";
+import Image from "next/image";
+import { HTMLFlipBook } from "./PageFlipWrapper";
+import { ViewerToolbar } from "./ViewToolbar";
+import { MobileMagazine } from "./MobileMagazine";
+import { useMediaQuery } from "@/lib/hooks";
+import type { IssueManifest } from "@/types/magazine";
 
 interface Props {
-  manifest: IssueManifest
-  title: string
+  manifest: IssueManifest;
+  title: string;
 }
 
 export function MagazineViewer({ manifest, title }: Props) {
-  const bookRef = useRef<any>(null)
-  const [currentPage, setCurrentPage] = useState(0)
-  const [isFullscreen, setIsFullscreen] = useState(false)
-  const isMobile = useMediaQuery('(max-width: 768px)')
+  const bookRef = useRef<any>(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const onFlip = useCallback((e: any) => {
-    setCurrentPage(e.data)
-  }, [])
+    setCurrentPage(e.data);
+  }, []);
 
-  const goToPrev = () => bookRef.current?.pageFlip().flipPrev()
-  const goToNext = () => bookRef.current?.pageFlip().flipNext()
-  const goToPage = (n: number) => bookRef.current?.pageFlip().flip(n)
+  const goToPrev = () => bookRef.current?.pageFlip().flipPrev();
+  const goToNext = () => bookRef.current?.pageFlip().flipNext();
+  const goToPage = (n: number) => bookRef.current?.pageFlip().flip(n);
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen()
-      setIsFullscreen(true)
+      document.documentElement.requestFullscreen();
+      setIsFullscreen(true);
     } else {
-      document.exitFullscreen()
-      setIsFullscreen(false)
+      document.exitFullscreen();
+      setIsFullscreen(false);
     }
-  }
+  };
 
   // Keyboard navigation
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') goToNext()
-      if (e.key === 'ArrowLeft') goToPrev()
-    }
-    window.addEventListener('keydown', handleKey)
-    return () => window.removeEventListener('keydown', handleKey)
-  }, [])
+      if (e.key === "ArrowRight") goToNext();
+      if (e.key === "ArrowLeft") goToPrev();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, []);
 
   if (isMobile) {
-    return <MobileMagazine pages={manifest.pages} title={title} />
+    return <MobileMagazine pages={manifest.pages} title={title} />;
   }
 
   return (
     <div className="flex flex-col items-center bg-neutral-950 min-h-screen">
-
       <ViewerToolbar
         title={title}
         currentPage={currentPage}
@@ -98,13 +98,12 @@ export function MagazineViewer({ manifest, title }: Props) {
                 fill
                 sizes="50vw"
                 className="object-cover"
-                loading={i < 4 ? 'eager' : 'lazy'}
+                loading={i < 4 ? "eager" : "lazy"}
               />
             </div>
           ))}
         </HTMLFlipBook>
       </div>
-
     </div>
-  )
+  );
 }

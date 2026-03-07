@@ -10,7 +10,9 @@ export async function MagazineArchive() {
         <p className="text-xs font-mono tracking-widest text-neutral-400 uppercase mb-2">
           All Issues
         </p>
-        <h1 className="font-serif text-4xl md:text-5xl">The Archive</h1>
+        <h1 className="font-serif text-4xl text-rose-950 md:text-5xl">
+          The Archive
+        </h1>
       </header>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">

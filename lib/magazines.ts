@@ -5,10 +5,10 @@ import { Issue, IssueManifest } from "@/types/magazine";
 // Static data (CMS will come later)
 const ISSUES: Issue[] = [
   {
-    slug: "Jan 2025",
+    slug: "Jan-25",
     title: "Baby's First Issue",
     issueNumber: 1,
-    coverImage: "/magazines/Jan-25/cover.webp",
+    coverImage: "/magazines/Jan-25/page-001.webp",
     pageCount: 20,
     description: "The Debut",
   },
