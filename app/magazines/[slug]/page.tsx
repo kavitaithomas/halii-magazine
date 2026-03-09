@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const issue = await getIssue(params.slug);
   if (!issue) return {};
   return {
-    title: `${issue.title} — ${issue.season}`,
+    title: `${issue.title}}`,
     description: issue.description,
     openGraph: {
       images: [{ url: issue.coverImage }],
@@ -38,10 +38,7 @@ export default async function MagazinePage({ params }: Props) {
 
   return (
     <main>
-      <MagazineViewer
-        manifest={manifest}
-        title={`${issue.title} · ${issue.season}`}
-      />
+      <MagazineViewer manifest={manifest} title={`${issue.title}`} />
     </main>
   );
 }
