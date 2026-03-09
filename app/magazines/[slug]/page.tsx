@@ -1,12 +1,10 @@
-// individual magazine viewer
-
 import { notFound } from "next/navigation";
 import { getIssue, getIssues, getIssueManifest } from "@/lib/magazines";
 import { MagazineViewer } from "@/components/magazine/MagazineViewer";
 import type { Metadata } from "next";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 // Pre-render all issue pages at build time
@@ -17,10 +15,11 @@ export async function generateStaticParams() {
 
 // SEO metadata per issue
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const issue = await getIssue(params.slug);
+  const { slug } = await params;
+  const issue = await getIssue(slug);
   if (!issue) return {};
   return {
-    title: `${issue.title}}`,
+    title: `${issue.title}`,
     description: issue.description,
     openGraph: {
       images: [{ url: issue.coverImage }],
@@ -29,9 +28,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function MagazinePage({ params }: Props) {
+  const { slug } = await params;
+
   const [issue, manifest] = await Promise.all([
-    getIssue(params.slug),
-    getIssueManifest(params.slug),
+    getIssue(slug),
+    getIssueManifest(slug),
   ]);
 
   if (!issue) notFound();

@@ -7,7 +7,6 @@ export interface Issue {
   coverImage: string; // path to cover WebP
   pageCount: number;
   description?: string;
-  tags?: string[];
 }
 
 export interface IssueManifest {
