@@ -6,10 +6,9 @@
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-coterie: var(--font-coterie);
   --font-mono: var(--font-geist-mono);
+  --font-ephesis: var(--font-ephesis);
 }
 
 body {
