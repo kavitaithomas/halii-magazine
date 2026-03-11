@@ -34,6 +34,7 @@ export function MagazineViewer({ manifest, title }: Props) {
     setCurrentPage(e.data);
   }, []);
 
+  // Nav functions
   const goToPrev = () => bookRef.current?.pageFlip().flipPrev();
   const goToNext = () => bookRef.current?.pageFlip().flipNext();
   const goToPage = (n: number) => bookRef.current?.pageFlip().flip(n);
@@ -63,7 +64,7 @@ export function MagazineViewer({ manifest, title }: Props) {
   }
 
   return (
-    <div className="flex flex-col items-center bg-neutral-950 min-h-screen">
+    <div className="flex flex-col items-center bg-zinc-50">
       <ViewerToolbar
         title={title}
         currentPage={currentPage}
@@ -75,16 +76,15 @@ export function MagazineViewer({ manifest, title }: Props) {
         isFullscreen={isFullscreen}
       />
 
-      <div className="flex-1 flex items-center justify-center p-8 w-full">
+      <div className="flex-1 flex items-center justify-center p-8 w-screen h-screen">
         <HTMLFlipBook
           ref={bookRef}
           width={550}
           height={733}
-          size="stretch"
           minWidth={300}
           maxWidth={1000}
           minHeight={400}
-          maxHeight={1350}
+          maxHeight={1280}
           showCover={true}
           mobileScrollSupport={false}
           onFlip={onFlip}

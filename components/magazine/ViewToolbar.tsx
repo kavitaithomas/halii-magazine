@@ -1,47 +1,55 @@
-'use client'
-import { useState } from 'react'
-import { ChevronLeft, ChevronRight, Maximize, Minimize } from 'lucide-react'
+"use client";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Maximize, Minimize } from "lucide-react";
+import Link from "next/link";
 
 interface Props {
-  title: string
-  currentPage: number
-  pageCount: number
-  onPrev: () => void
-  onNext: () => void
-  onGoToPage: (n: number) => void
-  onToggleFullscreen: () => void
-  isFullscreen: boolean
+  title: string;
+  currentPage: number;
+  pageCount: number;
+  onPrev: () => void;
+  onNext: () => void;
+  onGoToPage: (n: number) => void;
+  onToggleFullscreen: () => void;
+  isFullscreen: boolean;
 }
 
-export function ViewerToolbar({ title, currentPage, pageCount,
-  onPrev, onNext, onGoToPage, onToggleFullscreen, isFullscreen }: Props) {
-
-  const [inputVal, setInputVal] = useState('')
+export function ViewerToolbar({
+  title,
+  currentPage,
+  pageCount,
+  onPrev,
+  onNext,
+  onGoToPage,
+  onToggleFullscreen,
+  isFullscreen,
+}: Props) {
+  const [inputVal, setInputVal] = useState("");
 
   const handlePageJump = (e: React.FormEvent) => {
-    e.preventDefault()
-    const n = parseInt(inputVal) - 1
+    e.preventDefault();
+    const n = parseInt(inputVal) - 1;
     if (!isNaN(n) && n >= 0 && n < pageCount) {
-      onGoToPage(n)
+      onGoToPage(n);
     }
-    setInputVal('')
-  }
+    setInputVal("");
+  };
 
   return (
-    <div className="w-full flex items-center justify-between
-                   px-6 py-3 bg-neutral-900 border-b border-neutral-800">
+    <div className="w-full relative flex items-center px-6 py-1 bg-zinc-50 border-b border-t border-red-950">
+      {/* Left */}
+      <div className="flex items-center gap-x-10">
+        <Link href="/magazines">
+          <p className="text-sm text-red-950">Back</p>
+        </Link>
+        <p className="text-sm font-bold text-red-950 max-w-50">{title}</p>
+      </div>
 
-      {/* Title */}
-      <span className="text-sm font-mono text-neutral-400 truncate max-w-[200px]">
-        {title}
-      </span>
-
-      {/* Page controls */}
-      <div className="flex items-center gap-3">
+      {/* Center */}
+      <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-3">
         <button
           onClick={onPrev}
-          className="p-1.5 rounded text-neutral-400 hover:text-white
-                       hover:bg-neutral-800 transition-colors"
+          className="p-1.5 rounded text-red-950"
           aria-label="Previous page"
         >
           <ChevronLeft size={18} />
@@ -53,37 +61,34 @@ export function ViewerToolbar({ title, currentPage, pageCount,
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
             placeholder={String(currentPage + 1)}
-            className="w-12 text-center bg-neutral-800 text-white text-sm
-                         rounded px-1.5 py-0.5 font-mono border border-neutral-700
-                         focus:outline-none focus:border-neutral-500"
+            className="w-12 text-center bg-red-950 text-white text-sm
+            rounded px-1.5 py-0.5 font-mono border border-neutral-700
+            focus:outline-none focus:border-neutral-500"
             min="1"
             max={pageCount}
           />
-          <span className="text-neutral-500 text-sm font-mono">
-            / {pageCount}
-          </span>
+          <span className="text-red-950 text-sm font-mono">/ {pageCount}</span>
         </form>
 
         <button
           onClick={onNext}
-          className="p-1.5 rounded text-neutral-400 hover:text-white
-                       hover:bg-neutral-800 transition-colors"
+          className="p-1.5 rounded text-red-950"
           aria-label="Next page"
         >
           <ChevronRight size={18} />
         </button>
       </div>
 
-      {/* Fullscreen toggle */}
-      <button
-        onClick={onToggleFullscreen}
-        className="p-1.5 rounded text-neutral-400 hover:text-white
-                     hover:bg-neutral-800 transition-colors"
-        aria-label="Toggle fullscreen"
-      >
-        {isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
-      </button>
-
+      {/* Right */}
+      <div className="ml-auto">
+        <button
+          onClick={onToggleFullscreen}
+          className="p-1.5 rounded text-red-950"
+          aria-label="Toggle fullscreen"
+        >
+          {isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
+        </button>
+      </div>
     </div>
-  )
+  );
 }
