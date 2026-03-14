@@ -39,8 +39,9 @@ export function ViewerToolbar({
     <div className="w-full relative flex items-center px-6 py-1 bg-zinc-50 border-b border-t border-red-950">
       {/* Left */}
       <div className="flex items-center gap-x-10">
-        <Link href="/magazines">
-          <p className="text-sm text-red-950">Back</p>
+        <Link className="flex flex-row items-center" href="/magazines">
+          <ChevronLeft size={18} />
+          <p className="text-sm text-red-950">Back to the Archive</p>
         </Link>
         <p className="text-sm font-bold text-red-950 max-w-50">{title}</p>
       </div>

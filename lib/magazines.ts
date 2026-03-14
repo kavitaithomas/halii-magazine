@@ -12,6 +12,30 @@ const ISSUES: Issue[] = [
     pageCount: 20,
     description: "The Debut",
   },
+  {
+    slug: "Feb-26",
+    title: "Feb 26",
+    issueNumber: 14,
+    coverImage: "/magazines/Feb-26/page-001.webp",
+    pageCount: 20,
+    description: "The Love Bug",
+  },
+  {
+    slug: "Mar-25",
+    title: "Mar 25",
+    issueNumber: 2,
+    coverImage: "/magazines/Mar-25/page-001.webp",
+    pageCount: 20,
+    description: "A Month of New Beginnings",
+  },
+  {
+    slug: "April-25",
+    title: "April 25",
+    issueNumber: 2,
+    coverImage: "/magazines/April-25/page-001.webp",
+    pageCount: 20,
+    description: "April Showers",
+  },
 ];
 
 export async function getIssues(): Promise<Issue[]> {
