@@ -1,3 +1,6 @@
+import Link from "next/link";
+import Scroll from "@/components/ui/Scroll";
+
 export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">
@@ -8,7 +11,9 @@ export default function Home() {
             <h1 className="font-ephesis text-red-900">Magazine</h1>
           </div>
           <div>
-            <p className="text-2xl">Read the latest issue</p>
+            <Link className="text-2xl" href="/magazines/Feb-26">
+              Read the latest issue
+            </Link>
           </div>
         </div>
       </main>
