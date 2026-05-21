@@ -123,11 +123,8 @@ export default function IssuesSection() {
       </div>
 
       {/* Centre text */}
-      <div className="relative z-20 text-center max-w-md mx-auto">
-        <h2
-          className="font-coterie text-black mb-4"
-          style={{ fontVariantLigatures: "none" }}
-        >
+      <div className="relative z-20 text-center max-w mx-auto">
+        <h2 className="font-coterie text-black mb-4 text-7xl">
           WE ALL HAVE ISSUES...
         </h2>
         <p

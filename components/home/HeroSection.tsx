@@ -25,39 +25,42 @@ const MODELS = [
     src: "/models/geneva1.webp",
     alt: "Geneva",
     width: 110,
-    heightClass: "h-52",
+    heightClass: "h-32",
   },
-  { src: "/models/jacy1.webp", alt: "Jacy", width: 100, heightClass: "h-60" },
+  { src: "/models/jacy1.webp", alt: "Jacy", width: 100, heightClass: "h-44" },
   {
     src: "/models/katherine1.webp",
     alt: "Katherine",
     width: 105,
     heightClass: "h-56",
   },
-  { src: "/models/kat1.webp", alt: "Kat", width: 95, heightClass: "h-64" },
+  { src: "/models/kat1.webp", alt: "Kat", width: 95, heightClass: "h-30" },
   {
     src: "/models/madeline1.webp",
     alt: "Madeline",
     width: 108,
-    heightClass: "h-52",
+    heightClass: "h-32",
   },
-  { src: "/models/jacy2.webp", alt: "Jacy", width: 100, heightClass: "h-58" },
+  { src: "/models/jacy2.webp", alt: "Jacy", width: 100, heightClass: "h-44" },
 ];
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full pt-8 pb-6 px-4 md:px-8">
+    <section className="relative mx-32 pt-8 pb-6 px-4 md:px-8">
       {/* Big headline */}
       <div className="relative flex items-baseline justify-center gap-3 md:gap-5 leading-none">
         <h1
-          className="font-coterie text-[clamp(4rem,14vw,10rem)] text-black leading-none tracking-tight"
-          style={{ letterSpacing: "-0.02em" }}
+          className="font-coterie text-black block w-full"
+          style={{
+            fontSize: "clamp(3rem, 16vw, 94rem)",
+            letterSpacing: "-0.02em",
+          }}
         >
           HALII
         </h1>
         <h1
-          className="font-ephesis text-[clamp(3rem,11vw,8rem)] text-red-900 leading-none"
-          style={{ marginTop: "0.1em" }}
+          className="font-ephesis text-red-950 block w-full"
+          style={{ fontSize: "clamp(2rem, 15.5vw, 99rem)" }}
         >
           Magazine
         </h1>
@@ -69,6 +72,7 @@ export default function HeroSection() {
       </div>
 
       {/* Model parade row */}
+
       <div className="relative mt-4 flex items-center justify-center gap-28 overflow-x-auto no-scrollbar pb-2">
         {/* Sparkles scattered behind models */}
         <Sparkle className="absolute top-4 left-[10%] opacity-70 scale-75 pointer-events-none" />
