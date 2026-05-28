@@ -8,11 +8,8 @@ import Footer from "@/components/home/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-white overflow-x-hidden">
+    <main className="bg-cream overflow-x-hidden">
       <HeroSection />
-      <ScrollingTicker />
-      <WhatsNewSection />
-      <IssuesSection />
       <TellHaliiSection />
       <Footer />
     </main>

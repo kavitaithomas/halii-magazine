@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import ScrollingTicker from "@/components/home/ScrollingTicker";
 
 function Sparkle({ className = "" }: { className?: string }) {
   return (
@@ -32,7 +33,7 @@ const MODELS = [
     src: "/models/katherine1.webp",
     alt: "Katherine",
     width: 105,
-    heightClass: "h-56",
+    heightClass: "h-32",
   },
   { src: "/models/kat1.webp", alt: "Kat", width: 95, heightClass: "h-30" },
   {
@@ -46,9 +47,12 @@ const MODELS = [
 
 export default function HeroSection() {
   return (
-    <section className="relative mx-32 pt-8 pb-6 px-4 md:px-8">
+    <section
+      className="relative w-full px-8 md:px-32 h-screen flex flex-col justify-between"
+      style={{ height: "calc(100vh - var(--navbar-height))" }}
+    >
       {/* Big headline */}
-      <div className="relative flex items-baseline justify-center gap-3 md:gap-5 leading-none">
+      <div className="relative flex justify-center items-baseline md:gap-5 leading-none">
         <h1
           className="font-coterie text-black block w-full"
           style={{
@@ -73,7 +77,7 @@ export default function HeroSection() {
 
       {/* Model parade row */}
 
-      <div className="relative mt-4 flex items-center justify-center gap-28 overflow-x-auto no-scrollbar pb-2">
+      <div className="relative flex items-end justify-center gap-x-24  overflow-x-auto no-scrollbar">
         {/* Sparkles scattered behind models */}
         <Sparkle className="absolute top-4 left-[10%] opacity-70 scale-75 pointer-events-none" />
         <Sparkle className="absolute top-2 left-[38%] opacity-80 pointer-events-none" />
@@ -86,19 +90,23 @@ export default function HeroSection() {
             key={i}
             src={model.src}
             alt={model.alt}
-            className="shrink-0 h-auto w-36 object-cover object-top"
+            className="h-72 object-cover object-top"
           />
         ))}
       </div>
 
       {/* CTA */}
-      <div className="mt-6 flex justify-center">
+      <div className="flex py-3 justify-center">
         <Link
           href="/magazines/Jan-25"
           className="font-coterie text-sm tracking-widest text-black flex items-center gap-2 hover:gap-4 transition-all duration-300"
         >
           March issue out now <span className="text-lg">→</span>
         </Link>
+      </div>
+
+      <div className="w-screen -mx-8 md:-mx-32">
+        <ScrollingTicker />
       </div>
     </section>
   );

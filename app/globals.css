@@ -3,16 +3,18 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --navbar-height: 64px;
 }
 
 @theme inline {
   --font-coterie: var(--font-coterie);
   --font-mono: var(--font-geist-mono);
   --font-ephesis: var(--font-ephesis);
+
+  --color-cream: #fcfcff;
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }

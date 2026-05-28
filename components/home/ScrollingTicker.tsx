@@ -17,13 +17,13 @@ const TAGS = [
 
 export default function ScrollingTicker() {
   return (
-    <div className="w-full border-t border-b border-black bg-white overflow-hidden py-2 my-2">
+    <div className="w-full border-t border-b border-black bg-cream overflow-hidden py-2 my-2">
       <div className="flex animate-ticker whitespace-nowrap">
         {/* Duplicate for seamless loop */}
         {[...TAGS, ...TAGS].map((tag, i) => (
           <span
             key={i}
-            className="font-coterie text-xs tracking-[0.2em] uppercase text-black/90 mx-6"
+            className="font-coterie text-xs tracking-[0.2em] uppercase text-black mx-6"
           >
             {tag}
           </span>
