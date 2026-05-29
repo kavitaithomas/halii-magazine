@@ -1,19 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fcfcff;
   --foreground: #171717;
   --navbar-height: 64px;
 }
 
 @theme inline {
+  /* Main headings */
   --font-coterie: var(--font-coterie);
+
+  /* ephesis only for magazine on hero section */
   --font-ephesis: var(--font-ephesis);
 
   --color-cream: #fcfcff;
 }
 
+/* Readable font throughout */
 body {
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
