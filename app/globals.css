@@ -8,7 +8,6 @@
 
 @theme inline {
   --font-coterie: var(--font-coterie);
-  --font-mono: var(--font-geist-mono);
   --font-ephesis: var(--font-ephesis);
 
   --color-cream: #fcfcff;

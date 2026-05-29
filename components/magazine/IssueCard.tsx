@@ -30,7 +30,7 @@ export function IssueCard({ issue, priority = false }: IssueCardProps) {
           {/* Issue number badge */}
           <div
             className="absolute bg-black/80 text-white
-                         text-xs font-mono tracking-widest px-2"
+                         text-xs tracking-widest px-2"
           >
             {issue.slug}
           </div>

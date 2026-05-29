@@ -7,7 +7,7 @@ export async function MagazineArchive() {
   return (
     <section className="max-w-6xl mx-auto px-6 py-16">
       <header className="mb-12">
-        <p className="text-xs font-mono tracking-widest text-neutral-400 uppercase mb-2">
+        <p className="text-xs font-serif tracking-widest text-neutral-400 uppercase mb-2">
           All Issues
         </p>
         <h1 className="font-serif text-4xl text-rose-950 md:text-5xl">

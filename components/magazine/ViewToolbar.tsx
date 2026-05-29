@@ -63,12 +63,12 @@ export function ViewerToolbar({
             onChange={(e) => setInputVal(e.target.value)}
             placeholder={String(currentPage + 1)}
             className="w-12 text-center bg-red-950 text-white text-sm
-            rounded px-1.5 py-0.5 font-mono border border-neutral-700
+            rounded px-1.5 py-0.5 border border-neutral-700
             focus:outline-none focus:border-neutral-500"
             min="1"
             max={pageCount}
           />
-          <span className="text-red-950 text-sm font-mono">/ {pageCount}</span>
+          <span className="text-red-950 text-sm">/ {pageCount}</span>
         </form>
 
         <button

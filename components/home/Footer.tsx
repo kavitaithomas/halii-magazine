@@ -42,7 +42,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-12 md:gap-8">
         {/* Left — social links */}
         <div className="flex flex-col gap-4">
-          <p className="font-coterie text-sm tracking-widest text-white/70">
+          <p className="text-sm tracking-widest text-white/70">
             Let&apos;s connect
           </p>
           <div className="flex items-center gap-4">
@@ -69,7 +69,7 @@ export default function Footer() {
 
         {/* Right — message form */}
         <div className="flex flex-col gap-4 md:w-80">
-          <p className="font-coterie text-sm tracking-widest text-white/70">
+          <p className="text-sm tracking-widest text-white/70">
             Send us a message!
           </p>
           <textarea
@@ -82,7 +82,7 @@ export default function Footer() {
           <div className="flex justify-end">
             <button
               onClick={handleSend}
-              className="font-coterie text-xs tracking-[0.2em] bg-white/10 hover:bg-white/20 border border-white/30 text-white px-5 py-2 transition-colors duration-200"
+              className="text-xs tracking-[0.2em] bg-white/10 hover:bg-white/20 border border-white/30 text-white px-5 py-2 transition-colors duration-200"
             >
               send
             </button>
@@ -92,7 +92,7 @@ export default function Footer() {
 
       {/* Bottom copyright */}
       <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-white/10">
-        <p className="text-xs text-white/30 font-coterie tracking-widest">
+        <p className="text-xs text-white/30 tracking-widest">
           © {new Date().getFullYear()} Halii Magazine. Halifax, Nova Scotia.
         </p>
       </div>
