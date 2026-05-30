@@ -5,7 +5,7 @@ import Footer from "@/components/home/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-cream overflow-x-hidden">
+    <main className="bg-cream overflow-x-hidden pt-16">
       <HeroSection />
       <AboutSection />
       <Footer />
