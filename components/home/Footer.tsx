@@ -73,7 +73,7 @@ export default function Footer() {
         <div className="pt-2">
           <Link
             href="/magazines"
-            className="group inline-flex items-center gap-2 rounded-2xl bg-yellow-600 px-6 py-1 font-serif font-bold uppercase text-red-950 transition-all duration-300"
+            className="group inline-flex items-center gap-2 bg-yellow-600 px-6 py-1 font-serif font-bold uppercase text-red-950 transition-all duration-300"
           >
             Read the issues
             <span className="transition-transform duration-300 group-hover:translate-x-2">

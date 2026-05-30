@@ -8,8 +8,12 @@ export default function Navbar() {
         <Image src="/logo.svg" width={100} height={50} alt="HALII logo" />
       </Link>
       <div className="flex gap-x-4">
-        <Link href="/magazines">Magazines</Link>
-        <Link href="/about">About</Link>
+        <Link
+          href="/magazines"
+          className="text-black/80 font-serif uppercase font-bold hover:text-yellow-600"
+        >
+          Magazines
+        </Link>
       </div>
     </nav>
   );

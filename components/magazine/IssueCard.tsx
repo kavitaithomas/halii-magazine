@@ -13,7 +13,7 @@ export function IssueCard({ issue, priority = false }: IssueCardProps) {
       <article className="flex flex-col">
         {/* Cover image */}
         <div
-          className="relative aspect-[3/4] overflow-hidden bg-neutral-100
+          className="relative aspect-3/4 overflow-hidden bg-neutral-100
                        shadow-md transition-shadow duration-300
                        group-hover:shadow-xl"
         >
@@ -39,12 +39,14 @@ export function IssueCard({ issue, priority = false }: IssueCardProps) {
         {/* Metadata */}
         <div className="pt-3">
           <h3
-            className="mt-1 font-serif text-3xl leading-snug
-                        group-hover:underline underline-offset-2 text-rose-950"
+            className="mt-1 font-serif font-medium text-3xl leading-snug
+                        group-hover:underline underline-offset-2 text-red-950"
           >
             {issue.title}
           </h3>
-          <p className="mt-1 text-m text-neutral-400">{issue.description}</p>
+          <p className="mt-1 text-lg font-medium md:text-xl text-black/70">
+            {issue.description}
+          </p>
         </div>
       </article>
     </Link>

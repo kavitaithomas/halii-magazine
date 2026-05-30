@@ -101,7 +101,7 @@ export default function HeroSection() {
           href="/magazines/Jan-25"
           className="text-sm uppercase tracking-widest text-pink-900 font-serif font-bold flex items-center gap-2 hover:gap-4 transition-all duration-300"
         >
-          March issue out now <span className="text-lg text-pink-900">→</span>
+          Read the latest issue <span className="text-lg text-pink-900">→</span>
         </Link>
       </div>
 

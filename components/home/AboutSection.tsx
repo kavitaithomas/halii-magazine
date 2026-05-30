@@ -130,7 +130,7 @@ const STARS = [
     rotate: -8,
   },
   {
-    src: "/home_assets/pinkstar.webp",
+    src: "/home_assets/silverstar.webp",
     alt: "star",
     size: 46,
     mobileSize: 22,
@@ -154,7 +154,7 @@ const STARS = [
     rotate: 15,
   },
   {
-    src: "/home_assets/pinkstar.webp",
+    src: "/home_assets/pearlstar.webp",
     alt: "star",
     size: 40,
     mobileSize: 20,
@@ -162,7 +162,7 @@ const STARS = [
     rotate: -18,
   },
   {
-    src: "/home_assets/pinkstar.webp",
+    src: "/home_assets/pearlstar.webp",
     alt: "star",
     size: 88,
     mobileSize: 40,
@@ -186,7 +186,7 @@ const STARS = [
     rotate: 22,
   },
   {
-    src: "/home_assets/pinkstar.webp",
+    src: "/home_assets/silverstar.webp",
     alt: "star",
     size: 54,
     mobileSize: 26,
