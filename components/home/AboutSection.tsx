@@ -174,7 +174,7 @@ const STARS = [
     alt: "star",
     size: 76,
     mobileSize: 36,
-    className: "top-[58%] left-[86%]",
+    className: "top-[58%] left-[90%]",
     rotate: -12,
   },
   {

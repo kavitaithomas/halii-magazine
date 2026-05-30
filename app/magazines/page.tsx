@@ -5,7 +5,7 @@ import Footer from "@/components/home/Footer";
 
 export default function ArchivePage() {
   return (
-    <main className="bg-cream overflow-x-hidden">
+    <main className="bg-cream overflow-x-hidden pt-8">
       <MagazineArchive />
       <Footer />
     </main>

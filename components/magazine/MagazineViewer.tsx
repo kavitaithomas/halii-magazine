@@ -64,7 +64,7 @@ export function MagazineViewer({ manifest, title }: Props) {
   }
 
   return (
-    <div className="flex flex-col items-center bg-zinc-50">
+    <div className="pt-20 flex flex-col items-center bg-zinc-50">
       <ViewerToolbar
         title={title}
         currentPage={currentPage}
