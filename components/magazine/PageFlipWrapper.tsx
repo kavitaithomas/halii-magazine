@@ -5,7 +5,7 @@ import React from "react";
 const HTMLFlipBookDynamic = dynamic(() => import("react-pageflip"), {
   ssr: false,
   loading: () => (
-    <div className="flex items-center justify-center h-[600px] w-full">
+    <div className="flex items-center justify-center h-150 w-full">
       <span className="text-sm font-mono text-neutral-400 animate-pulse">
         Loading magazine...
       </span>

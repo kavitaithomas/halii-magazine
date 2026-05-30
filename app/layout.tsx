@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Geist_Mono, Ephesis } from "next/font/google";
+import { Ephesis } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/ui/NavBar";
 
@@ -17,11 +17,6 @@ const ephesis = Ephesis({
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   title: "Halii Magazine",
   description: "Lifestyle magazine based in Halifax, Nova Scotia",
@@ -34,9 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${coterie.variable} ${geistMono.variable} ${ephesis.variable} antialiased`}
-      >
+      <body className={`${coterie.variable} ${ephesis.variable} antialiased`}>
         <Navbar />
         {children}
       </body>

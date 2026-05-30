@@ -41,9 +41,9 @@ export function ViewerToolbar({
       <div className="flex items-center gap-x-10">
         <Link className="flex flex-row items-center" href="/magazines">
           <ChevronLeft size={18} />
-          <p className="text-sm text-red-950">Back to the Archive</p>
+          <p className="text-md uppercase text-black">Back to the Archive</p>
         </Link>
-        <p className="text-sm font-bold text-red-950 max-w-50">{title}</p>
+        <p className="text-sm font-bold text-black max-w-50">{title}</p>
       </div>
 
       {/* Center */}
@@ -63,12 +63,12 @@ export function ViewerToolbar({
             onChange={(e) => setInputVal(e.target.value)}
             placeholder={String(currentPage + 1)}
             className="w-12 text-center bg-red-950 text-white text-sm
-            rounded px-1.5 py-0.5 font-mono border border-neutral-700
+            rounded px-1.5 py-0.5 border border-neutral-700
             focus:outline-none focus:border-neutral-500"
             min="1"
             max={pageCount}
           />
-          <span className="text-red-950 text-sm font-mono">/ {pageCount}</span>
+          <span className="text-red-950 text-sm">/ {pageCount}</span>
         </form>
 
         <button
@@ -84,7 +84,7 @@ export function ViewerToolbar({
       <div className="ml-auto">
         <button
           onClick={onToggleFullscreen}
-          className="p-1.5 rounded text-red-950"
+          className="p-1.5 rounded text-black"
           aria-label="Toggle fullscreen"
         >
           {isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}

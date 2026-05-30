@@ -8,7 +8,7 @@ interface Props {
 
 export function MobileMagazine({ pages, title }: Props) {
   return (
-    <div className="bg-zinc-50 min-h-screen">
+    <div className="bg-zinc-50 min-h-screen pt-16">
       <div
         className="sticky top-0 z-10 bg-zinc-50 px-4 py-1
                      border-y border-neutral-800"
