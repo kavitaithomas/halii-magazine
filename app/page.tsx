@@ -12,7 +12,6 @@ export default function Home() {
     <main className="bg-cream overflow-x-hidden">
       <HeroSection />
       <AboutSection />
-      <TellHaliiSection />
       <Footer />
     </main>
   );

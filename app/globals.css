@@ -19,5 +19,5 @@
 /* Readable font throughout */
 body {
   color: var(--foreground);
-  font-family: Helvetica, sans-serif;
+  font-family: serif;
 }

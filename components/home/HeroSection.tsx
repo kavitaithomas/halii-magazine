@@ -99,9 +99,9 @@ export default function HeroSection() {
       <div className="flex py-3 justify-center">
         <Link
           href="/magazines/Jan-25"
-          className="text-sm uppercase tracking-widest text-black flex items-center gap-2 hover:gap-4 transition-all duration-300"
+          className="text-sm uppercase tracking-widest text-pink-900 font-serif font-bold flex items-center gap-2 hover:gap-4 transition-all duration-300"
         >
-          March issue out now <span className="text-lg">→</span>
+          March issue out now <span className="text-lg text-pink-900">→</span>
         </Link>
       </div>
 

@@ -101,6 +101,7 @@ const STARS = [
     src: "/home_assets/silverstar.webp",
     alt: "star",
     size: 28,
+    mobileSize: 14,
     className: "top-[6%] left-[14%]",
     rotate: 20,
   },
@@ -108,6 +109,7 @@ const STARS = [
     src: "/home_assets/pearlstar.webp",
     alt: "star",
     size: 30,
+    mobileSize: 16,
     className: "top-[10%] left-[58%]",
     rotate: -12,
   },
@@ -115,6 +117,7 @@ const STARS = [
     src: "/home_assets/silverstar.webp",
     alt: "star",
     size: 24,
+    mobileSize: 12,
     className: "top-[52%] left-[78%]",
     rotate: 35,
   },
@@ -122,14 +125,15 @@ const STARS = [
     src: "/home_assets/pearlstar.webp",
     alt: "star",
     size: 28,
+    mobileSize: 14,
     className: "top-[70%] left-[6%]",
     rotate: -8,
   },
-  // Midground
   {
     src: "/home_assets/pinkstar.webp",
     alt: "star",
     size: 46,
+    mobileSize: 22,
     className: "top-[4%] left-[82%]",
     rotate: 10,
   },
@@ -137,6 +141,7 @@ const STARS = [
     src: "/home_assets/silverstar.webp",
     alt: "star",
     size: 42,
+    mobileSize: 20,
     className: "top-[38%] left-[3%]",
     rotate: -25,
   },
@@ -144,6 +149,7 @@ const STARS = [
     src: "/home_assets/pearlstar.webp",
     alt: "star",
     size: 50,
+    mobileSize: 24,
     className: "top-[76%] left-[52%]",
     rotate: 15,
   },
@@ -151,14 +157,15 @@ const STARS = [
     src: "/home_assets/pinkstar.webp",
     alt: "star",
     size: 40,
+    mobileSize: 20,
     className: "top-[28%] left-[70%]",
     rotate: -18,
   },
-  // Foreground — large, vivid
   {
     src: "/home_assets/pinkstar.webp",
     alt: "star",
     size: 88,
+    mobileSize: 40,
     className: "top-[18%] left-[-1%]",
     rotate: 5,
   },
@@ -166,6 +173,7 @@ const STARS = [
     src: "/home_assets/silverstar.webp",
     alt: "star",
     size: 76,
+    mobileSize: 36,
     className: "top-[58%] left-[86%]",
     rotate: -12,
   },
@@ -173,6 +181,7 @@ const STARS = [
     src: "/home_assets/pearlstar.webp",
     alt: "star",
     size: 62,
+    mobileSize: 30,
     className: "top-[80%] left-[28%]",
     rotate: 22,
   },
@@ -180,6 +189,7 @@ const STARS = [
     src: "/home_assets/pinkstar.webp",
     alt: "star",
     size: 54,
+    mobileSize: 26,
     className: "top-[2%] left-[42%]",
     rotate: -30,
   },
@@ -189,8 +199,7 @@ const STARS = [
 export default function AboutSection() {
   return (
     <div className="w-full bg-white overflow-hidden">
-      {/* ══ SECTION 1: Spinning circle + tagline ══════════════════════════════ */}
-      <section className="w-full px-6 md:px-16 py-16 md:py-24 flex flex-col md:flex-row items-center gap-10 md:gap-16">
+      <section className="w-full px-12 md:px-24 pt-6 md:pt-12 flex flex-col md:flex-row items-center justify-center gap-y-8 md:gap-16">
         <div className="w-full max-w-70 md:max-w-none md:w-[35%] shrink-0 mx-auto md:mx-0">
           <SpinningCircle />
         </div>
@@ -207,8 +216,8 @@ export default function AboutSection() {
         </FadeIn>
       </section>
 
-      <section className="relative w-full px-6 md:px-16 py-12 md:py-20 overflow-hidden">
-        {/* ── Stars: z-0, behind everything ── */}
+      <section className="relative w-full px-12 md:px-24 py-12 md:py-20 overflow-hidden">
+        {/* Stars — z-0, behind everything */}
         {STARS.map((star, i) => (
           <div
             key={i}
@@ -221,29 +230,25 @@ export default function AboutSection() {
               width={star.size}
               height={star.size}
               className="object-contain"
+              style={{
+                width: `clamp(${star.mobileSize}px, ${star.size * 0.08}vw + ${star.mobileSize}px, ${star.size}px)`,
+                height: "auto",
+              }}
             />
           </div>
         ))}
 
-        {/* ── All content: z-10, on top of stars ── */}
+        {/* Content — z-10, on top of stars */}
         <div className="relative z-10 flex flex-col">
-          {/* "...That means all things" */}
           <FadeIn>
-            <p
-              className="font-serif text-black/70 mb-8"
-              style={{ fontSize: "clamp(1.4rem, 2.8vw, 2.4rem)" }}
-            >
+            <p className="font-serif font-bold mb-1 text-lg md:text-3xl md:ps-12 md:mb-0">
               ...That means all things
             </p>
           </FadeIn>
 
-          {/* Categories — staggered 3-column layout */}
-          <div className="flex flex-row justify-center gap-x-[6vw] md:gap-x-[8vw] font-coterie font-bold text-red-950">
-            {/* Column 1 — baseline aligned, pushed down */}
-            <FadeIn
-              delay={0}
-              className="flex flex-col gap-y-2 mt-[8vw] md:mt-64"
-            >
+          {/* ── DESKTOP: staggered 3-column layout ── */}
+          <div className="hidden md:flex flex-row justify-center font-serif font-bold text-blue-800">
+            <FadeIn delay={0} className="flex flex-col gap-y-1 mt-64">
               <span style={{ fontSize: "clamp(1.6rem, 5vw, 4rem)" }}>
                 BUSINESS
               </span>
@@ -255,21 +260,17 @@ export default function AboutSection() {
               </span>
             </FadeIn>
 
-            {/* Column 2 — tallest, centred vertically */}
-            <FadeIn
-              delay={120}
-              className="flex flex-col gap-y-2 mt-[2vw] md:mt-8"
-            >
+            <FadeIn delay={120} className="flex flex-col gap-y-1 mt-16">
               <span style={{ fontSize: "clamp(1.6rem, 5vw, 4rem)" }}>ART</span>
               <span
                 className="ms-16"
-                style={{ fontSize: "clamp(1.4rem, 4.5vw, 3.6rem)" }}
+                style={{ fontSize: "clamp(1.6rem, 5vw, 4rem)" }}
               >
                 MUSIC
               </span>
               <span
                 className="ms-32"
-                style={{ fontSize: "clamp(1.4rem, 4.5vw, 3.6rem)" }}
+                style={{ fontSize: "clamp(1.6rem, 5vw, 4rem)" }}
               >
                 FILM
               </span>
@@ -281,8 +282,7 @@ export default function AboutSection() {
               </span>
             </FadeIn>
 
-            {/* Column 3 — slightly elevated */}
-            <FadeIn delay={240} className="flex flex-col gap-y-2">
+            <FadeIn delay={240} className="flex flex-col gap-y-1">
               <span style={{ fontSize: "clamp(1.6rem, 5vw, 4rem)" }}>
                 EVENTS
               </span>
@@ -295,89 +295,69 @@ export default function AboutSection() {
             </FadeIn>
           </div>
 
-          {/* "...and we're out of breath" */}
-          <FadeIn delay={400}>
-            <p
-              className="font-serif text-black/70 mt-10 md:mt-14 text-right"
-              style={{ fontSize: "clamp(1.4rem, 2.8vw, 2.4rem)" }}
+          {/* ── MOBILE: staggered groups ── */}
+          <div className="md:hidden font-coterie font-bold text-blue-800 py-4 flex flex-col gap-y-3 w-fit mx-auto">
+            {/* Group 1 — 2 items, left-anchored */}
+            <FadeIn delay={0} className="flex flex-col items-start gap-y-1">
+              <span className="text-3xl">ART</span>
+              <span className="text-3xl ms-8">MUSIC</span>
+            </FadeIn>
+
+            {/* Group 2 — 3 items, shifted right */}
+            <FadeIn
+              delay={120}
+              className="flex flex-col items-start gap-y-1 ms-12"
             >
+              <span className="text-3xl">FILM</span>
+              <span className="text-3xl ms-8">FOOD</span>
+              <span className="text-3xl ms-16">EVENTS</span>
+            </FadeIn>
+
+            {/* Group 3 — 3 items, back left */}
+            <FadeIn delay={240} className="flex flex-col items-start gap-y-1">
+              <span className="text-3xl ms-4">BOOKS</span>
+              <span className="text-3xl ms-12">BUSINESS</span>
+              <span className="text-3xl ms-18">FASHION</span>
+            </FadeIn>
+          </div>
+
+          <FadeIn delay={400}>
+            <p className="font-serif font-bold mt-1 text-right text-lg md:text-3xl md:pe-12 md:mt-0">
               ... and we&apos;re out of breath
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* ══ SECTION 3: Cool people ════════════════════════════════════════════ */}
-      <section className="w-full px-6 md:px-16 py-16 md:py-24">
-        <FadeIn>
-          <div className="max-w-2xl mx-auto text-center space-y-8">
-            <p
-              className=" text-black leading-relaxed"
-              style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)" }}
-            >
-              It&apos;s a magazine featuring cool people,{" "}
-              <span className="text-red-900">FOR cool people.</span>
-              <br />
-              Luckily, Halifax has a lot of them.
-            </p>
-            <p
-              className=" text-black/55 leading-relaxed"
-              style={{ fontSize: "clamp(0.9rem, 1.6vw, 1.25rem)" }}
-            >
-              Whether you&apos;re looking for a local band recommendation or
-              your next late night bite, we&apos;ve got you covered, cover to
-              cover.
-            </p>
-          </div>
-        </FadeIn>
-      </section>
+      {/* ══ SECTION 3 */}
+      <section className="w-full px-6 md:px-12 pb-8 md:pb-16">
+        <div className="text-center">
+          <p
+            className="font-serif text-red-950 font-bold uppercase"
+            style={{ fontSize: "clamp(1.6rem, 4vw, 3.5rem)" }}
+          >
+            It&apos;s a magazine{" "}
+            <span className="text-pink-900">featuring</span> cool people,{" "}
+            <span className="text-pink-900">FOR </span>
+            cool people.
+          </p>
 
-      {/* ══ SECTION 4: Sign off ═══════════════════════════════════════════════ */}
-      <section className="w-full px-6 md:px-16 py-16 md:py-20 bg-red-950">
-        <FadeIn>
-          <div className="max-w-xl mx-auto text-center space-y-6">
-            <p
-              className=" text-white/80 leading-relaxed"
-              style={{ fontSize: "clamp(0.85rem, 1.5vw, 1.15rem)" }}
-            >
-              So stick around, read some of our issues, old and new, and bask in
-              all that HALII has to offer. Feel free to drop us a DM{" "}
-              <a
-                href="https://instagram.com/haliimagazine"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white underline underline-offset-2 hover:opacity-70 transition-opacity"
-              >
-                @haliimagazine
-              </a>{" "}
-              on Instagram or an email{" "}
-              <a
-                href="mailto:haliimagazine@gmail.com"
-                className="text-white underline underline-offset-2 hover:opacity-70 transition-opacity"
-              >
-                haliimagazine@gmail.com
-              </a>{" "}
-              if you have any questions or suggestions!
-            </p>
-            <p
-              className=" text-white/90"
-              style={{ fontSize: "clamp(1.2rem, 2.2vw, 1.9rem)" }}
-            >
-              We&apos;d be honoured to hear from you.
-            </p>
-            <p className="text-base tracking-widest text-white">
-              Love you all, Kait &amp; Cal
-            </p>
-            <div className="pt-4">
-              <Link
-                href="/magazines"
-                className="inline-block text-xs tracking-[0.2em] uppercase border border-white/40 text-white px-8 py-3 hover:bg-white hover:text-[#6b1a1a] transition-all duration-300"
-              >
-                Read the issues →
-              </Link>
-            </div>
-          </div>
-        </FadeIn>
+          <p
+            className="font-serif uppercase text-black font-medium mt-2 py-6 md:pb-10"
+            style={{ fontSize: "clamp(1rem, 2vw, 1.8rem)" }}
+          >
+            Luckily, Halifax has a lot of them.
+          </p>
+
+          <p className="text-black font-bold text-lg md:text-xl font-serif leading-relaxed max-w4xl mx-auto">
+            Whether you&apos;re looking for a local band recommendation or your
+            next late night bite, we&apos;ve got you covered, cover to cover.
+          </p>
+          <p className="text-black font-bold text-lg md:text-xl font-serif mx-auto">
+            So stick around, read some of our issues, old and new, and bask in
+            all that HALII has to offer.
+          </p>
+        </div>
       </section>
     </div>
   );
