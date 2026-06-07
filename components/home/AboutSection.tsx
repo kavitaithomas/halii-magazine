@@ -323,7 +323,7 @@ export default function AboutSection() {
 
           <FadeIn delay={400}>
             <p className="font-serif font-bold mt-1 text-right text-lg md:text-3xl md:pe-12 md:mt-0">
-              ... and we&apos;re out of breath
+              ... and we&apos;re out of breath.
             </p>
           </FadeIn>
         </div>

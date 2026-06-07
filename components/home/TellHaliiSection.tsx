@@ -3,22 +3,13 @@ import Image from "next/image";
 
 export default function TellHaliiSection() {
   return (
-    <section className="relative w-full px-6 py-16 md:py-24 overflow-hidden">
+    <section className="max-w-6xl mx-auto px-6 py-16">
       {/* Section heading */}
-      <div className="text-center mb-10 md:mb-16">
-        <h2
-          className="font-coterie text-[clamp(2rem,6vw,4rem)] tracking-[0.15em] text-black"
-          style={{ fontVariantLigatures: "none" }}
-        >
+      <header className="mb-12">
+        <h1 className="font-coterie text-4xl text-black md:text-5xl">
           TELL HALII
-        </h2>
-        <Link
-          href="/tell-halii"
-          className="inline-block mt-2 text-black hover:opacity-50 transition-opacity text-xl"
-        >
-          →
-        </Link>
-      </div>
+        </h1>
+      </header>
 
       {/* DESKTOP */}
       <div

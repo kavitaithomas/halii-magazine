@@ -1,7 +1,7 @@
 //magazine index/archive
 
 import { MagazineArchive } from "@/components/magazine/MagazineArchive";
-import Footer from "@/components/home/Footer";
+import Footer from "@/components/ui/Footer";
 
 export default function ArchivePage() {
   return (

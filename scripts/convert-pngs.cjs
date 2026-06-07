@@ -51,4 +51,6 @@ async function convertIssue(issueFolder, slug) {
 
 // Add your issues here — first arg is the folder name inside /png,
 // second arg is the slug used in the URL and /public/magazines:
-convertIssue("April-25", "April-25");
+convertIssue("June-25", "June-25");
+convertIssue("May-25", "May-25");
+convertIssue("Oct-25", "Oct-25");

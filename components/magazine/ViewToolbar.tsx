@@ -43,7 +43,9 @@ export function ViewerToolbar({
           <ChevronLeft size={18} />
           <p className="text-md uppercase text-black">Back to the Archive</p>
         </Link>
-        <p className="text-sm font-bold text-black max-w-50">{title}</p>
+        <p className="text-sm uppercase font-bold text-black max-w-50">
+          {title}
+        </p>
       </div>
 
       {/* Center */}
