@@ -26,7 +26,7 @@ export function ViewerToolbar({
 }: Props) {
   const [inputVal, setInputVal] = useState("");
 
-  const handlePageJump = (e: React.FormEvent) => {
+  const handlePageJump = (e: React.SubmitEvent) => {
     e.preventDefault();
     const n = parseInt(inputVal) - 1;
     if (!isNaN(n) && n >= 0 && n < pageCount) {
