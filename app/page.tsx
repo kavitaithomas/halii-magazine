@@ -5,7 +5,7 @@ import Footer from "@/components/ui/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-pink-50 overflow-x-hidden pt-16">
+    <main className="bg-cream overflow-x-hidden pt-16">
       <HeroSection />
       <AboutSection />
       <Footer />

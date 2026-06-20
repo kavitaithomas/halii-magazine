@@ -133,9 +133,12 @@ export default function Footer() {
         </div>
       </div>
       {/* Bottom copyright */}
-      <div className="w-full mx-auto mt-12 pt-6 border-t border-white/10">
+      <div className="w-full flex flex-col md:flex-row md:justify-between md:items-center gap-2 mx-auto mt-12 pt-6 border-t border-white/10">
         <p className="text-xs text-white/40 tracking-widest">
           © {new Date().getFullYear()} Halii Magazine. Halifax, Nova Scotia.
+        </p>
+        <p className="text-xs text-white/40 tracking-widest">
+          Website designed and developed by Kavita Thomas
         </p>
       </div>
     </footer>

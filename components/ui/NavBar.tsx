@@ -3,11 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Maximize, Minimize } from "lucide-react";
+import { Maximize, Minimize, Menu, X } from "lucide-react";
+import ScrollingTicker from "@/components/home/ScrollingTicker";
 
 export default function Navbar() {
   const [visible, setVisible] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -27,7 +29,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Keep state in sync if user exits fullscreen with Escape key
   useEffect(() => {
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
@@ -47,35 +48,78 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 bg-cream flex h-16 items-center justify-between px-4 transition-transform duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <Link href="/">
-        <Image src="/logo.svg" width={100} height={50} alt="HALII logo" />
-      </Link>
+      {/* ── Top bar ── */}
+      <div className="bg-pink-50 flex h-16 items-center justify-between px-4">
+        <Link href="/">
+          <Image src="/logo.svg" width={100} height={50} alt="HALII logo" />
+        </Link>
 
-      <div className="flex items-center gap-x-6 ml-auto">
-        <Link
-          href="/magazines"
-          className="text-black/80 font-serif uppercase font-bold hover:text-yellow-600"
-        >
-          Magazines
-        </Link>
-        <Link
-          href="/tell-halii"
-          className="text-black/80 font-serif uppercase font-bold hover:text-yellow-600"
-        >
-          Tell Halii
-        </Link>
+        {/* Desktop links — hidden on mobile */}
+        <div className="hidden md:flex items-center gap-x-6 ml-auto">
+          <Link
+            href="/magazines"
+            className="text-black/80 font-serif uppercase font-bold hover:text-yellow-600"
+          >
+            Magazines
+          </Link>
+          <Link
+            href="/tell-halii"
+            className="text-black/80 font-serif uppercase font-bold hover:text-yellow-600"
+          >
+            Tell Halii
+          </Link>
+          <button
+            onClick={toggleFullscreen}
+            className="p-1.5 rounded text-black hover:opacity-60 transition-opacity"
+            aria-label="Toggle fullscreen"
+          >
+            {isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
+          </button>
+        </div>
+
+        {/* Mobile hamburger — hidden on desktop */}
         <button
-          onClick={toggleFullscreen}
-          className="p-1.5 rounded text-black hover:opacity-60 transition-opacity"
-          aria-label="Toggle fullscreen"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          className="md:hidden p-1.5 text-black ml-auto"
+          aria-label="Toggle menu"
         >
-          {isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
+
+      {/* ── Ticker — sits flush under the top bar, no gap ── */}
+      <ScrollingTicker />
+
+      {/* ── Mobile dropdown menu ── */}
+      {menuOpen && (
+        <div className="md:hidden bg-pink-50 border-t border-black/10 flex flex-col px-4 py-4 gap-y-4">
+          <Link
+            href="/magazines"
+            onClick={() => setMenuOpen(false)}
+            className="text-black/80 font-serif uppercase font-bold hover:text-yellow-600"
+          >
+            Magazines
+          </Link>
+          <Link
+            href="/tell-halii"
+            onClick={() => setMenuOpen(false)}
+            className="text-black/80 font-serif uppercase font-bold hover:text-yellow-600"
+          >
+            Tell Halii
+          </Link>
+          <button
+            onClick={toggleFullscreen}
+            className="flex items-center gap-x-2 text-black/80 font-serif uppercase font-bold w-fit"
+          >
+            {isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
+            Fullscreen
+          </button>
+        </div>
+      )}
     </nav>
   );
 }

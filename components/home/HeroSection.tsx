@@ -1,26 +1,7 @@
 import Link from "next/link";
-import ScrollingTicker from "@/components/home/ScrollingTicker";
+
+import SpinningCircle from "@/components/home/SpinningCircle";
 import { getIssues } from "@/lib/magazines";
-
-function Sparkle({ className = "" }: { className?: string }) {
-  return (
-    <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <path
-        d="M10 0L11.5 8.5L20 10L11.5 11.5L10 20L8.5 11.5L0 10L8.5 8.5L10 0Z"
-        fill="#C8A84B"
-      />
-    </svg>
-  );
-}
-
-const MODELS = [
-  { src: "/models/geneva1.webp",    alt: "Geneva"    },
-  { src: "/models/jacy1.webp",      alt: "Jacy"      },
-  { src: "/models/katherine1.webp", alt: "Katherine" },
-  { src: "/models/kat1.webp",       alt: "Kat"       },
-  { src: "/models/madeline1.webp",  alt: "Madeline"  },
-  { src: "/models/jacy2.webp",      alt: "Jacy"      },
-];
 
 export default async function HeroSection() {
   // Always links to the most recently published issue
@@ -32,56 +13,46 @@ export default async function HeroSection() {
       className="relative w-full px-8 md:px-32 flex flex-col justify-between"
       style={{ height: "calc(100vh - var(--navbar-height))" }}
     >
-      {/* Big headline */}
-      <div className="relative flex justify-center items-baseline mt-4 md:gap-5 leading-none">
-        <h1
-          className="font-coterie text-black block w-full"
-          style={{ fontSize: "clamp(3rem, 16vw, 94rem)", letterSpacing: "-0.02em" }}
-        >
-          HALII
-        </h1>
-        <h1
-          className="font-ephesis text-red-950 block w-full"
-          style={{ fontSize: "clamp(2rem, 15.5vw, 99rem)" }}
-        >
-          Magazine
-        </h1>
+      {/* ── Circle + headline ── */}
+      <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+        {/* Spinning circle — left on desktop, top on mobile */}
+        <div className="w-full max-w-64 md:max-w-none md:w-[38%] shrink-0">
+          <SpinningCircle />
+        </div>
 
-        <Sparkle className="absolute top-2 right-[38%] opacity-80" />
-        <Sparkle className="absolute bottom-0 right-[22%] opacity-60 scale-75" />
-        <Sparkle className="absolute top-6 right-[10%] opacity-70 scale-90" />
-      </div>
-
-      {/* Model parade row */}
-      <div className="relative flex items-end justify-center gap-x-24 overflow-x-auto no-scrollbar">
-        <Sparkle className="absolute top-4 left-[10%] opacity-70 scale-75 pointer-events-none" />
-        <Sparkle className="absolute top-2 left-[38%] opacity-80 pointer-events-none" />
-        <Sparkle className="absolute top-6 left-[62%] opacity-60 scale-90 pointer-events-none" />
-        <Sparkle className="absolute bottom-8 right-[18%] opacity-70 scale-75 pointer-events-none" />
-        <Sparkle className="absolute top-3 right-[5%] opacity-50 pointer-events-none" />
-
-        {MODELS.map((model, i) => (
+        {/* Logo + tagline — right on desktop, bottom on mobile */}
+        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-3 md:gap-5">
+          {/* Mobile: two-line logo */}
           <img
-            key={i}
-            src={model.src}
-            alt={model.alt}
-            className="h-72 object-cover object-top"
+            src="/HaliiMagazine_twoline.svg"
+            alt="Halii Magazine"
+            className="block md:hidden w-full max-w-xs"
           />
-        ))}
-      </div>
 
-      {/* CTA — always points to latest issue */}
-      <div className="flex py-3 justify-center">
-        <Link
-          href={`/magazines/${latestSlug}`}
-          className="text-sm uppercase tracking-widest text-pink-900 font-serif font-bold flex items-center gap-2 hover:gap-4 transition-all duration-300"
-        >
-          Read the latest issue <span className="text-lg text-pink-900">→</span>
-        </Link>
-      </div>
+          {/* Desktop: inline logo */}
+          <img
+            src="/HaliiMagazine_inline.svg"
+            alt="Halii Magazine"
+            className="hidden md:block w-full"
+          />
 
-      <div className="w-screen -mx-8 md:-mx-32">
-        <ScrollingTicker />
+          <p
+            className="font-coterie text-black leading-tight"
+            style={{
+              fontSize: "clamp(1.4rem, 3vw, 2.4rem)",
+              letterSpacing: "0.02em",
+            }}
+          >
+            IS YOUR GO-TO SPOT FOR ALL THINGS HALIFAX.
+          </p>
+          <Link
+            href={`/magazines/${latestSlug}`}
+            className="text-sm uppercase tracking-widest text-pink-950 font-serif font-bold flex items-center gap-2 hover:gap-4 transition-all duration-300"
+          >
+            Read the latest issue{" "}
+            <span className="text-lg text-pink-950">→</span>
+          </Link>
+        </div>
       </div>
     </section>
   );
