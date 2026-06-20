@@ -160,12 +160,12 @@ export default function AboutSection() {
       <section className="w-full px-6 md:px-12 pb-8 md:pb-16">
         <div className="text-center">
           <p
-            className="font-serif text-red-950 font-bold uppercase"
+            className="font-serif text-red-950 uppercase"
             style={{ fontSize: "clamp(1.6rem, 4vw, 3.5rem)" }}
           >
             It&apos;s a magazine{" "}
-            <span className="text-pink-900">featuring</span> cool people,{" "}
-            <span className="text-pink-900">FOR </span>
+            <span className="text-yellow-600 font-bold">featuring</span> cool
+            people, <span className="text-yellow-600  font-bold">FOR </span>
             cool people.
           </p>
 

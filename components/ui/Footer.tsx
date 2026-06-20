@@ -138,7 +138,7 @@ export default function Footer() {
           © {new Date().getFullYear()} Halii Magazine. Halifax, Nova Scotia.
         </p>
         <p className="text-xs text-white/40 tracking-widest">
-          Website designed and developed by Kavita Thomas
+          Website designed and developed by Kavita Thomas.
         </p>
       </div>
     </footer>

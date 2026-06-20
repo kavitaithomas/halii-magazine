@@ -6,7 +6,7 @@ export async function MagazineArchive() {
   const issues = await getIssues();
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16">
+    <section className="mt-16 max-w-6xl mx-auto px-6 py-16">
       <header className="mb-12">
         <div className="flex flex-col">
           <p className="text-xs font-serif tracking-widest text-black/80 uppercase mb-2">

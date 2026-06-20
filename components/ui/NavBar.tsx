@@ -2,11 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Maximize, Minimize, Menu, X } from "lucide-react";
 import ScrollingTicker from "@/components/home/ScrollingTicker";
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isMagazineViewer =
+    pathname?.startsWith("/magazines/") && pathname !== "/magazines";
+
   const [visible, setVisible] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -66,12 +71,6 @@ export default function Navbar() {
           >
             Magazines
           </Link>
-          <Link
-            href="/tell-halii"
-            className="text-black/80 font-serif uppercase font-bold hover:text-yellow-600"
-          >
-            Tell Halii
-          </Link>
           <button
             onClick={toggleFullscreen}
             className="p-1.5 rounded text-black hover:opacity-60 transition-opacity"
@@ -91,8 +90,8 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* ── Ticker — sits flush under the top bar, no gap ── */}
-      <ScrollingTicker />
+      {/* Only show ticker when NOT on a magazine viewer page */}
+      {!isMagazineViewer && <ScrollingTicker />}
 
       {/* ── Mobile dropdown menu ── */}
       {menuOpen && (
