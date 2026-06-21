@@ -9,8 +9,7 @@ export default function SpinningCircle() {
     let frame: number;
     let angle = 0;
 
-    // Faster spin on small screens
-    const speed = window.innerWidth < 768 ? 0.3 : 0.12;
+    const speed = window.innerWidth < 768 ? 0.14 : 0.12;
 
     const spin = () => {
       angle += speed;
