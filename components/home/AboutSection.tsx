@@ -2,9 +2,6 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import AllThingsSection from "@/components/home/AllThingsSection";
-
-// ... rest of your impor
 
 // ── SCROLL FADE HOOK ──────────────────────────────────────────────────────────
 function useFadeIn() {
@@ -152,9 +149,119 @@ const STARS = [
 // ── MAIN EXPORT ───────────────────────────────────────────────────────────────
 export default function AboutSection() {
   return (
-    <div className="w-full bg-white overflow-hidden">
-      {/* HERE */}
-      <AllThingsSection />
+    <div className="w-full  bg-cream overflow-hidden">
+      <section className="relative w-full px-12 md:px-24 py-12 md:pb-24 overflow-hidden">
+        {/* Stars — z-0, behind everything */}
+        {STARS.map((star, i) => (
+          <div
+            key={i}
+            className={`absolute pointer-events-none z-0 ${star.className}`}
+            style={{ transform: `rotate(${star.rotate}deg)` }}
+          >
+            <Image
+              src={star.src}
+              alt={star.alt}
+              width={star.size}
+              height={star.size}
+              className="object-contain"
+              style={{
+                width: `clamp(${star.mobileSize}px, ${star.size * 0.08}vw + ${star.mobileSize}px, ${star.size}px)`,
+                height: "auto",
+              }}
+            />
+          </div>
+        ))}
+
+        {/* Content — z-10, on top of stars */}
+        <div className="relative z-10 flex flex-col">
+          <FadeIn>
+            <p className="font-serif font-bold mb-1 text-lg md:text-3xl md:ps-12 md:mb-0">
+              ...That means all things
+            </p>
+          </FadeIn>
+
+          {/* ── DESKTOP: staggered 3-column layout ── */}
+          <div className="hidden md:flex flex-row justify-center font-serif font-bold text-blue-800">
+            <FadeIn delay={0} className="flex flex-col gap-y-1 mt-64">
+              <span style={{ fontSize: "clamp(1.6rem, 5vw, 4rem)" }}>
+                BUSINESS
+              </span>
+              <span
+                className="ms-16"
+                style={{ fontSize: "clamp(1.6rem, 5vw, 4rem)" }}
+              >
+                FASHION
+              </span>
+            </FadeIn>
+
+            <FadeIn delay={120} className="flex flex-col gap-y-1 mt-16">
+              <span style={{ fontSize: "clamp(1.6rem, 5vw, 4rem)" }}>ART</span>
+              <span
+                className="ms-16"
+                style={{ fontSize: "clamp(1.6rem, 5vw, 4rem)" }}
+              >
+                MUSIC
+              </span>
+              <span
+                className="ms-32"
+                style={{ fontSize: "clamp(1.6rem, 5vw, 4rem)" }}
+              >
+                FILM
+              </span>
+              <span
+                className="ms-48"
+                style={{ fontSize: "clamp(1.6rem, 5vw, 4rem)" }}
+              >
+                FOOD
+              </span>
+            </FadeIn>
+
+            <FadeIn delay={240} className="flex flex-col gap-y-1">
+              <span style={{ fontSize: "clamp(1.6rem, 5vw, 4rem)" }}>
+                EVENTS
+              </span>
+              <span
+                className="ms-16"
+                style={{ fontSize: "clamp(1.6rem, 5vw, 4rem)" }}
+              >
+                BOOKS
+              </span>
+            </FadeIn>
+          </div>
+
+          {/* ── MOBILE: staggered groups ── */}
+          <div className="md:hidden font-coterie font-bold text-blue-800 py-4 flex flex-col gap-y-3 w-fit mx-auto">
+            {/* Group 1 — 2 items, left-anchored */}
+            <FadeIn delay={0} className="flex flex-col items-start gap-y-1">
+              <span className="text-3xl">ART</span>
+              <span className="text-3xl ms-8">MUSIC</span>
+            </FadeIn>
+
+            {/* Group 2 — 3 items, shifted right */}
+            <FadeIn
+              delay={120}
+              className="flex flex-col items-start gap-y-1 ms-12"
+            >
+              <span className="text-3xl">FILM</span>
+              <span className="text-3xl ms-8">FOOD</span>
+              <span className="text-3xl ms-16">EVENTS</span>
+            </FadeIn>
+
+            {/* Group 3 — 3 items, back left */}
+            <FadeIn delay={240} className="flex flex-col items-start gap-y-1">
+              <span className="text-3xl ms-4">BOOKS</span>
+              <span className="text-3xl ms-12">BUSINESS</span>
+              <span className="text-3xl ms-18">FASHION</span>
+            </FadeIn>
+          </div>
+
+          <FadeIn delay={400}>
+            <p className="font-serif font-bold mt-1 text-right text-lg md:text-3xl md:pe-12 md:mt-0">
+              ... and we&apos;re out of breath.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
 
       {/* ══ SECTION 3 */}
       <section className="w-full px-6 md:px-12 pb-8 md:pb-16">
@@ -165,7 +272,7 @@ export default function AboutSection() {
           >
             It&apos;s a magazine{" "}
             <span className="text-yellow-600 font-bold">featuring</span> cool
-            people, <span className="text-yellow-600  font-bold">FOR </span>
+            people, <span className="text-yellow-600 font-bold">FOR </span>
             cool people.
           </p>
 

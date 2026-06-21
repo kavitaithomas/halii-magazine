@@ -103,13 +103,7 @@ export default function Navbar() {
           >
             Magazines
           </Link>
-          <Link
-            href="/tell-halii"
-            onClick={() => setMenuOpen(false)}
-            className="text-black/80 font-serif uppercase font-bold hover:text-yellow-600"
-          >
-            Tell Halii
-          </Link>
+
           <button
             onClick={toggleFullscreen}
             className="flex items-center gap-x-2 text-black/80 font-serif uppercase font-bold w-fit"

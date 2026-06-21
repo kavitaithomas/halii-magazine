@@ -30,7 +30,7 @@ export function IssueCard({ issue, priority = false }: IssueCardProps) {
         }`}
       >
         <article className="flex flex-col">
-          {/* Cover image */}
+          {/* Covers */}
           <div className="relative aspect-3/4 overflow-hidden bg-neutral-100 shadow-md transition-shadow duration-300 group-hover:shadow-xl">
             <Image
               src={issue.coverImage}
@@ -44,12 +44,10 @@ export function IssueCard({ issue, priority = false }: IssueCardProps) {
 
           {/* Metadata */}
           <div className="pt-3">
-            <h3 className="mt-1 font-serif text-lg leading-snug group-hover:underline underline-offset-2">
+            <h3 className="mt-1 font-serif text-lg uppercase leading-snug group-hover:underline underline-offset-2">
               {issue.title}
             </h3>
-            <p className="mt-1 text-sm text-neutral-500">
-              {issue.pageCount} pages
-            </p>
+            <p className="text-sm text-red-950">{issue.description}</p>
           </div>
         </article>
       </Link>

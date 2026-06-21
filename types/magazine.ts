@@ -4,7 +4,7 @@ export interface Issue {
   slug: string; // used in URL: /magazines/Jan-25
   title: string;
   issueNumber: number;
-  coverImage: string; // path to cover WebP
+  coverImage: string;
   pageCount: number;
   description?: string;
 }
@@ -12,5 +12,5 @@ export interface Issue {
 export interface IssueManifest {
   slug: string;
   pageCount: number;
-  pages: string[]; // array of image paths
+  pages: string[];
 }

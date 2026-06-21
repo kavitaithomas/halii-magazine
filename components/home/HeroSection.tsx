@@ -16,7 +16,7 @@ export default async function HeroSection() {
       {/* ── Circle + headline ── */}
       <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
         {/* Spinning circle — left on desktop, top on mobile */}
-        <div className="w-full max-w-64 md:max-w-none md:w-[38%] shrink-0">
+        <div className="w-full mt-16 md:mt-0 max-w-64 md:max-w-none md:w-[38%] shrink-0">
           <SpinningCircle />
         </div>
 

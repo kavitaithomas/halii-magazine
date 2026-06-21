@@ -8,8 +8,12 @@ export default function SpinningCircle() {
   useEffect(() => {
     let frame: number;
     let angle = 0;
+
+    // Faster spin on small screens
+    const speed = window.innerWidth < 768 ? 0.3 : 0.12;
+
     const spin = () => {
-      angle += 0.12;
+      angle += speed;
       if (ringRef.current)
         ringRef.current.style.transform = `rotate(${angle}deg)`;
       frame = requestAnimationFrame(spin);

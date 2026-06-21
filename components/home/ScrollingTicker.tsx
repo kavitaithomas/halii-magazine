@@ -42,6 +42,13 @@ export default function ScrollingTicker() {
         .animate-ticker {
           animation: ticker 18s linear infinite;
         }
+
+        /* Faster scroll on mobile */
+        @media (max-width: 768px) {
+          .animate-ticker {
+            animation-duration: 8s;
+          }
+        }
       `}</style>
     </div>
   );
