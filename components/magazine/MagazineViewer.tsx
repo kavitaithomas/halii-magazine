@@ -27,7 +27,6 @@ interface Props {
 export function MagazineViewer({ manifest, title }: Props) {
   const bookRef = useRef<any>(null);
   const [currentPage, setCurrentPage] = useState(0);
-  const [isFullscreen, setIsFullscreen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   const onFlip = useCallback((e: any) => {
@@ -38,16 +37,6 @@ export function MagazineViewer({ manifest, title }: Props) {
   const goToPrev = () => bookRef.current?.pageFlip().flipPrev();
   const goToNext = () => bookRef.current?.pageFlip().flipNext();
   const goToPage = (n: number) => bookRef.current?.pageFlip().flip(n);
-
-  const toggleFullscreen = () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-      setIsFullscreen(true);
-    } else {
-      document.exitFullscreen();
-      setIsFullscreen(false);
-    }
-  };
 
   // Keyboard navigation
   useEffect(() => {
@@ -64,7 +53,7 @@ export function MagazineViewer({ manifest, title }: Props) {
   }
 
   return (
-    <div className="pt-20 flex flex-col items-center bg-zinc-50">
+    <div className="pt-16 flex flex-col items-center bg-zinc-50">
       <ViewerToolbar
         title={title}
         currentPage={currentPage}
@@ -72,8 +61,6 @@ export function MagazineViewer({ manifest, title }: Props) {
         onPrev={goToPrev}
         onNext={goToNext}
         onGoToPage={goToPage}
-        onToggleFullscreen={toggleFullscreen}
-        isFullscreen={isFullscreen}
       />
 
       <div className="flex-1 flex items-center justify-center p-8 w-screen h-screen">

@@ -3,55 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-// ── SPINNING CIRCLE ───────────────────────────────────────────────────────────
-function SpinningCircle() {
-  const ringRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    let frame: number;
-    let angle = 0;
-    const spin = () => {
-      angle += 0.12;
-      if (ringRef.current)
-        ringRef.current.style.transform = `rotate(${angle}deg)`;
-      frame = requestAnimationFrame(spin);
-    };
-    frame = requestAnimationFrame(spin);
-    return () => cancelAnimationFrame(frame);
-  }, []);
-
-  return (
-    // padding-bottom: 100% makes the container a responsive square
-    <div className="relative w-full" style={{ paddingBottom: "100%" }}>
-      <div className="absolute inset-0">
-        {/* Layer 1 — spinning magazine ring */}
-        <div ref={ringRef} className="absolute inset-0">
-          <img
-            src="/home_assets/magazine_spinning.webp"
-            alt="Halii Magazine covers"
-            className="w-full h-full object-contain"
-          />
-        </div>
-
-        {/* Layer 3 — "IN AN EXCITING CITY" PNG, centred and still */}
-        <div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none"
-          style={{ paddingBottom: "6%" }}
-        >
-          <div className="w-[50%] h-[38%] relative">
-            <Image
-              src="/home_assets/exciting_city.png"
-              alt="Born of complete boredom in an exciting"
-              fill
-              className="object-contain"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 // ── SCROLL FADE HOOK ──────────────────────────────────────────────────────────
 function useFadeIn() {
   const ref = useRef<HTMLDivElement>(null);
@@ -61,7 +12,7 @@ function useFadeIn() {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([e]) => {
-        if (e.isIntersecting) setVisible(true);
+        setVisible(e.isIntersecting);
       },
       { threshold: 0.15 }
     );
@@ -198,25 +149,8 @@ const STARS = [
 // ── MAIN EXPORT ───────────────────────────────────────────────────────────────
 export default function AboutSection() {
   return (
-    <div className="w-full bg-white overflow-hidden">
-      <section className="w-full px-12 md:px-24 pt-6 md:pt-12 flex flex-col md:flex-row items-center justify-center gap-y-8 md:gap-16">
-        <div className="w-full max-w-70 md:max-w-none md:w-[35%] shrink-0 mx-auto md:mx-0">
-          <SpinningCircle />
-        </div>
-        <FadeIn delay={150} className="flex-1">
-          <p
-            className="font-coterie text-black leading-tight"
-            style={{
-              fontSize: "clamp(1.8rem, 4.5vw, 3.8rem)",
-              letterSpacing: "0.02em",
-            }}
-          >
-            HALII MAGAZINE IS YOUR GO-TO SPOT FOR ALL THINGS HALIFAX.
-          </p>
-        </FadeIn>
-      </section>
-
-      <section className="relative w-full px-12 md:px-24 py-12 md:py-20 overflow-hidden">
+    <div className="w-full  bg-cream overflow-hidden">
+      <section className="relative w-full px-12 md:px-24 py-12 md:pb-24 overflow-hidden">
         {/* Stars — z-0, behind everything */}
         {STARS.map((star, i) => (
           <div
@@ -241,7 +175,7 @@ export default function AboutSection() {
         {/* Content — z-10, on top of stars */}
         <div className="relative z-10 flex flex-col">
           <FadeIn>
-            <p className="font-serif font-bold mb-1 text-lg md:text-3xl md:ps-12 md:mb-0">
+            <p className="font-serif text-red-950 font-bold mb-1 text-lg md:text-3xl md:ps-12 md:mb-0">
               ...That means all things
             </p>
           </FadeIn>
@@ -322,7 +256,7 @@ export default function AboutSection() {
           </div>
 
           <FadeIn delay={400}>
-            <p className="font-serif font-bold mt-1 text-right text-lg md:text-3xl md:pe-12 md:mt-0">
+            <p className="font-serif text-red-950 font-bold mt-1 text-right text-lg md:text-3xl md:pe-12 md:mt-0">
               ... and we&apos;re out of breath.
             </p>
           </FadeIn>
@@ -333,12 +267,12 @@ export default function AboutSection() {
       <section className="w-full px-6 md:px-12 pb-8 md:pb-16">
         <div className="text-center">
           <p
-            className="font-serif text-red-950 font-bold uppercase"
+            className="font-serif text-red-950 uppercase"
             style={{ fontSize: "clamp(1.6rem, 4vw, 3.5rem)" }}
           >
             It&apos;s a magazine{" "}
-            <span className="text-pink-900">featuring</span> cool people,{" "}
-            <span className="text-pink-900">FOR </span>
+            <span className="text-yellow-600 font-bold">featuring</span> cool
+            people, <span className="text-yellow-600 font-bold">FOR </span>
             cool people.
           </p>
 

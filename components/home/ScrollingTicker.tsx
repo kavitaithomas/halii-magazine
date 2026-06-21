@@ -17,7 +17,7 @@ const TAGS = [
 
 export default function ScrollingTicker() {
   return (
-    <div className="w-full border-t border-b border-black bg-cream overflow-hidden py-2 my-2">
+    <div className="w-full border-t border-b border-black bg-cream overflow-hidden py-2">
       <div className="flex animate-ticker whitespace-nowrap">
         {/* Duplicate for seamless loop */}
         {[...TAGS, ...TAGS].map((tag, i) => (
@@ -41,6 +41,13 @@ export default function ScrollingTicker() {
         }
         .animate-ticker {
           animation: ticker 18s linear infinite;
+        }
+
+        /* Faster scroll on mobile */
+        @media (max-width: 768px) {
+          .animate-ticker {
+            animation-duration: 8s;
+          }
         }
       `}</style>
     </div>

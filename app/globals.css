@@ -21,3 +21,7 @@ body {
   color: var(--foreground);
   font-family: serif;
 }
+
+[class*="stf__"] {
+  touch-action: pan-y pinch-zoom !important;
+}

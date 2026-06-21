@@ -10,8 +10,6 @@ interface Props {
   onPrev: () => void;
   onNext: () => void;
   onGoToPage: (n: number) => void;
-  onToggleFullscreen: () => void;
-  isFullscreen: boolean;
 }
 
 export function ViewerToolbar({
@@ -21,12 +19,10 @@ export function ViewerToolbar({
   onPrev,
   onNext,
   onGoToPage,
-  onToggleFullscreen,
-  isFullscreen,
 }: Props) {
   const [inputVal, setInputVal] = useState("");
 
-  const handlePageJump = (e: React.FormEvent) => {
+  const handlePageJump = (e: React.SubmitEvent) => {
     e.preventDefault();
     const n = parseInt(inputVal) - 1;
     if (!isNaN(n) && n >= 0 && n < pageCount) {
@@ -79,17 +75,6 @@ export function ViewerToolbar({
           aria-label="Next page"
         >
           <ChevronRight size={18} />
-        </button>
-      </div>
-
-      {/* Right */}
-      <div className="ml-auto">
-        <button
-          onClick={onToggleFullscreen}
-          className="p-1.5 rounded text-black"
-          aria-label="Toggle fullscreen"
-        >
-          {isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
         </button>
       </div>
     </div>
