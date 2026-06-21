@@ -12,7 +12,7 @@ function useFadeIn() {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([e]) => {
-        if (e.isIntersecting) setVisible(true);
+        setVisible(e.isIntersecting);
       },
       { threshold: 0.15 }
     );
@@ -175,7 +175,7 @@ export default function AboutSection() {
         {/* Content — z-10, on top of stars */}
         <div className="relative z-10 flex flex-col">
           <FadeIn>
-            <p className="font-serif font-bold mb-1 text-lg md:text-3xl md:ps-12 md:mb-0">
+            <p className="font-serif text-red-950 font-bold mb-1 text-lg md:text-3xl md:ps-12 md:mb-0">
               ...That means all things
             </p>
           </FadeIn>
@@ -256,7 +256,7 @@ export default function AboutSection() {
           </div>
 
           <FadeIn delay={400}>
-            <p className="font-serif font-bold mt-1 text-right text-lg md:text-3xl md:pe-12 md:mt-0">
+            <p className="font-serif text-red-950 font-bold mt-1 text-right text-lg md:text-3xl md:pe-12 md:mt-0">
               ... and we&apos;re out of breath.
             </p>
           </FadeIn>

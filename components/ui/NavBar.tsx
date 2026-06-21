@@ -58,7 +58,7 @@ export default function Navbar() {
       }`}
     >
       {/* ── Top bar ── */}
-      <div className="bg-pink-50 flex h-16 items-center justify-between px-4">
+      <div className="bg-red-950 flex h-16 items-center justify-between px-4">
         <Link href="/">
           <Image src="/logo.svg" width={100} height={50} alt="HALII logo" />
         </Link>
@@ -67,13 +67,13 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-x-6 ml-auto">
           <Link
             href="/magazines"
-            className="text-black/80 font-serif uppercase font-bold hover:text-yellow-600"
+            className="text-cream font-serif uppercase font-bold hover:text-yellow-600"
           >
             Magazines
           </Link>
           <button
             onClick={toggleFullscreen}
-            className="p-1.5 rounded text-black hover:opacity-60 transition-opacity"
+            className="p-1.5 rounded text-cream hover:opacity-60 transition-opacity"
             aria-label="Toggle fullscreen"
           >
             {isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
@@ -83,7 +83,7 @@ export default function Navbar() {
         {/* Mobile hamburger — hidden on desktop */}
         <button
           onClick={() => setMenuOpen((prev) => !prev)}
-          className="md:hidden p-1.5 text-black ml-auto"
+          className="md:hidden p-1.5 text-cream ml-auto"
           aria-label="Toggle menu"
         >
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
