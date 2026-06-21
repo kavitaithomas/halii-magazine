@@ -42,8 +42,8 @@ export default function SpinningCircle() {
         >
           <div className="w-[50%] h-[38%] relative">
             <Image
-              src="/home_assets/Exciting_City.png"
-              alt="Born of complete boredom in an exciting"
+              src="/home_assets/Exciting_City.webp"
+              alt="Born of complete boredom in an exciting city"
               fill
               className="object-contain"
             />
