@@ -144,6 +144,70 @@ const STARS = [
     className: "top-[2%] left-[42%]",
     rotate: -30,
   },
+  {
+    src: "/home_assets/pinkstar.webp",
+    alt: "star",
+    size: 18,
+    mobileSize: 9,
+    className: "top-[2%] left-[24%]",
+    rotate: 18,
+  },
+  {
+    src: "/home_assets/pinkstar.webp",
+    alt: "star",
+    size: 16,
+    mobileSize: 8,
+    className: "top-[8%] left-[68%]",
+    rotate: -22,
+  },
+  {
+    src: "/home_assets/pinkstar.webp",
+    alt: "star",
+    size: 20,
+    mobileSize: 10,
+    className: "top-[1%] left-[92%]",
+    rotate: 12,
+  },
+  {
+    src: "/home_assets/pinkstar.webp",
+    alt: "star",
+    size: 14,
+    mobileSize: 7,
+    className: "top-[13%] left-[36%]",
+    rotate: -15,
+  },
+  {
+    src: "/home_assets/pinkstar.webp",
+    alt: "star",
+    size: 18,
+    mobileSize: 9,
+    className: "top-[88%] left-[16%]",
+    rotate: 25,
+  },
+  {
+    src: "/home_assets/pinkstar.webp",
+    alt: "star",
+    size: 16,
+    mobileSize: 8,
+    className: "top-[92%] left-[60%]",
+    rotate: -10,
+  },
+  {
+    src: "/home_assets/pinkstar.webp",
+    alt: "star",
+    size: 20,
+    mobileSize: 10,
+    className: "top-[96%] left-[40%]",
+    rotate: 8,
+  },
+  {
+    src: "/home_assets/pinkstar.webp",
+    alt: "star",
+    size: 14,
+    mobileSize: 7,
+    className: "top-[84%] left-[82%]",
+    rotate: -28,
+  },
 ];
 
 // ── MAIN EXPORT ───────────────────────────────────────────────────────────────
@@ -176,7 +240,7 @@ export default function AboutSection() {
         <div className="relative z-10 flex flex-col">
           <FadeIn>
             <p className="font-serif text-red-950 font-bold mb-1 text-lg md:text-3xl md:ps-12 md:mb-0">
-              ...That means all things
+              ...This means all things
             </p>
           </FadeIn>
 
