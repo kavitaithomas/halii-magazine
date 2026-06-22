@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import type { Issue } from "@/types/magazine";
 
 const MONTHS = [
+  "Spring",
+  "Summer",
   "Jan",
   "Feb",
   "Mar",
@@ -11,7 +13,7 @@ const MONTHS = [
   "Jun",
   "Jul",
   "Aug",
-  "Sep",
+  "Sept",
   "Oct",
   "Nov",
   "Dec",

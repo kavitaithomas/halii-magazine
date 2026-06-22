@@ -126,6 +126,14 @@ const ISSUES: Issue[] = [
     pageCount: 20,
     description: "The May Projection",
   },
+  {
+    slug: "Summer-26",
+    title: "Summer 26",
+    issueNumber: 16,
+    coverImage: "/magazines/Summer-26/page-001.webp",
+    pageCount: 23,
+    description: "The Summer Solstice",
+  },
 ];
 
 export async function getIssues(): Promise<Issue[]> {
