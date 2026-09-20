@@ -4,6 +4,8 @@ import { Ephesis } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/ui/NavBar";
 
+import { Analytics } from "@vercel/analytics/next";
+
 const coterie = localFont({
   src: "../pngs/coterie-regular.woff",
   variable: "--font-coterie",

@@ -67,11 +67,11 @@ export function MagazineViewer({ manifest, title }: Props) {
         <HTMLFlipBook
           ref={bookRef}
           width={550}
-          height={733}
+          height={712} // 550 × (2000/1545) = 711.9 → 712
           minWidth={300}
           maxWidth={1000}
-          minHeight={400}
-          maxHeight={1280}
+          minHeight={388} // 300 × (2000/1545)
+          maxHeight={1294} // 1000 × (2000/1545)
           showCover={true}
           mobileScrollSupport={false}
           onFlip={onFlip}
@@ -84,7 +84,7 @@ export function MagazineViewer({ manifest, title }: Props) {
                 alt={`Page ${i + 1}`}
                 fill
                 sizes="50vw"
-                className="object-cover"
+                className="object-contain"
                 loading={i < 4 ? "eager" : "lazy"}
               />
             </div>
