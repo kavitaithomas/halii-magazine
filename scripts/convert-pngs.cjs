@@ -20,7 +20,7 @@ async function convertIssue(issueFolder, slug) {
   // Get all PNGs sorted numerically: 1.png, 2.png ... 20.png
   const files = fs
     .readdirSync(inDir)
-    .filter((f) => f.endsWith(".png"))
+    .filter((f) => f.endsWith(".jpg"))
     .sort((a, b) => parseInt(a) - parseInt(b));
 
   console.log(`Converting ${issueFolder} (${files.length} pages)...`);
@@ -51,4 +51,4 @@ async function convertIssue(issueFolder, slug) {
 
 // Add your issues here — first arg is the folder name inside /png,
 // second arg is the slug used in the URL and /public/magazines:
-convertIssue("Summer-26", "Summer-26");
+convertIssue("Sept-26", "Sept-26");
