@@ -142,6 +142,14 @@ const ISSUES: Issue[] = [
     pageCount: 23,
     description: "The DIY Issue",
   },
+  {
+    slug: "Oct-26",
+    title: "October 26",
+    issueNumber: 18,
+    coverImage: "/magazines/Oct-26/page-001.webp",
+    pageCount: 42,
+    description: "What's Haunting HALII?",
+  },
 ];
 
 export async function getIssues(): Promise<Issue[]> {

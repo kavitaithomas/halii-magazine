@@ -20,7 +20,7 @@ async function convertIssue(issueFolder, slug) {
   // Get all PNGs sorted numerically: 1.png, 2.png ... 20.png
   const files = fs
     .readdirSync(inDir)
-    .filter((f) => f.endsWith(".jpg"))
+    .filter((f) => f.endsWith(".png"))
     .sort((a, b) => parseInt(a) - parseInt(b));
 
   console.log(`Converting ${issueFolder} (${files.length} pages)...`);
@@ -37,13 +37,13 @@ async function convertIssue(issueFolder, slug) {
   // Copy first page as cover
   fs.copyFileSync(
     path.join(outDir, "page-001.webp"),
-    path.join(outDir, "cover.webp")
+    path.join(outDir, "cover.webp"),
   );
 
   // Write manifest
   fs.writeFileSync(
     path.join(outDir, "manifest.json"),
-    JSON.stringify({ slug, pageCount: files.length }, null, 2)
+    JSON.stringify({ slug, pageCount: files.length }, null, 2),
   );
 
   console.log(`✓ ${files.length} pages saved to /public/magazines/${slug}`);
@@ -51,4 +51,4 @@ async function convertIssue(issueFolder, slug) {
 
 // Add your issues here — first arg is the folder name inside /png,
 // second arg is the slug used in the URL and /public/magazines:
-convertIssue("Sept-26", "Sept-26");
+convertIssue("Oct-26", "Oct-26");
