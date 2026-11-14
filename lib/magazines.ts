@@ -8,7 +8,7 @@ const ISSUES: Issue[] = [
     slug: "Feb-25",
     title: "Baby's First Issue",
     issueNumber: 1,
-    coverImage: "/magazines/Jan-25/page-001.webp",
+    coverImage: "/magazines/Feb-25/page-001.webp",
     pageCount: 20,
     description: "The Debut",
   },
