@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Ephesis } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"; // ← add
 import "./globals.css";
 import Navbar from "../components/ui/NavBar";
-
-import { Analytics } from "@vercel/analytics/next";
 
 const coterie = localFont({
   src: "../pngs/coterie-regular.woff",
@@ -26,14 +25,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className={`${coterie.variable} ${ephesis.variable} antialiased`}>
         <Navbar />
         {children}
+        <Analytics /> {/* ← add */}
       </body>
     </html>
   );
