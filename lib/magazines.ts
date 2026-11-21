@@ -150,6 +150,14 @@ const ISSUES: Issue[] = [
     pageCount: 42,
     description: "What's Haunting HALII?",
   },
+  {
+    slug: "Nov-26",
+    title: "November 26",
+    issueNumber: 19,
+    coverImage: "/magazines/Nov-26/page-001.webp",
+    pageCount: 32,
+    description: "The Performance Issue",
+  },
 ];
 
 export async function getIssues(): Promise<Issue[]> {
