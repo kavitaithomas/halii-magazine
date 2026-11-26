@@ -11,6 +11,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const isMagazineViewer =
     pathname?.startsWith("/magazines/") && pathname !== "/magazines";
+  const isContributors = pathname?.startsWith("/contributors");
+  const hideTicker = isMagazineViewer || isContributors;
 
   const [visible, setVisible] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -90,8 +92,8 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Only show ticker when NOT on a magazine viewer page */}
-      {!isMagazineViewer && <ScrollingTicker />}
+      {/* not on magazine or contributor page*/}
+      {!hideTicker && <ScrollingTicker />}
 
       {/* ── Mobile dropdown menu ── */}
       {menuOpen && (
